@@ -1,4 +1,4 @@
-export const userFields = {
+export const UserFields = {
 	id: true,
 	createdAt: true,
 	email: true,

@@ -1,7 +1,8 @@
 import asyncHandler from 'express-async-handler'
 import jwt from 'jsonwebtoken'
-import { prisma } from '../prisma'
-import { userFields } from '../utils/user.utils'
+
+import { prisma } from '../prisma.js'
+import { UserFields } from '../utils/user.utils.js'
 
 export const protect = asyncHandler(async (req, res, next) => {
 	let token
@@ -13,9 +14,9 @@ export const protect = asyncHandler(async (req, res, next) => {
 
 		const userFound = await prisma.user.findUnique({
 			where: {
-				id: decoded.id
+				id: decoded.userId
 			},
-			select: userFields
+			select: UserFields
 		})
 
 		if (userFound) {
@@ -23,12 +24,12 @@ export const protect = asyncHandler(async (req, res, next) => {
 			next()
 		} else {
 			res.status(401)
-			throw new Error('Not authorized, token is invalid')
+			throw new Error('Not authorized, token failed')
 		}
 	}
 
 	if (!token) {
 		res.status(401)
-		throw new Error('Not authorized, no token provided')
+		throw new Error('Not authorized, I do not have a token')
 	}
 })
