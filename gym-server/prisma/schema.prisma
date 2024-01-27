@@ -37,6 +37,7 @@ model Exercise {
 
   name     String
   times    Int
-  iconPath String    @map("icon_path")
+  iconPath String @map("icon_path")
+
   workouts Workout[]
 }
