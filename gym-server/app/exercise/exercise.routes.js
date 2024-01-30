@@ -11,7 +11,7 @@ import {
 import { createNewExerciseLog } from './log/exercise-log.controller.js'
 import { getExerciseLog } from './log/get-exercise-log.controller.js'
 import {
-	completedExerciseLog,
+	completeExerciseLog,
 	updateExerciseLogTime
 } from './log/update-exercise-log.controller.js'
 
@@ -31,6 +31,6 @@ router
 
 router.route('/log/time/:id').put(protect, updateExerciseLogTime)
 
-router.route('log/complete/:id').patch(protect, completedExerciseLog)
+router.route('/log/complete/:id').patch(protect, completeExerciseLog)
 
 export default router
