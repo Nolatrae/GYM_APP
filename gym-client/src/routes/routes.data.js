@@ -3,25 +3,25 @@ import Home from '../components/screens/home/Home'
 import NewWorkout from '../components/screens/new-workout/NewWorkout'
 import Profile from '../components/screens/profile/Profile'
 
-export const router = [
+export const routes = [
 	{
 		path: '/',
 		component: Home,
-		auth: false
+		isAuth: false
 	},
 	{
 		path: '/auth',
 		component: Auth,
-		auth: false
+		isAuth: false
 	},
 	{
 		path: '/new-workout',
 		component: NewWorkout,
-		auth: true
+		isAuth: true
 	},
 	{
 		path: '/profile',
 		component: Profile,
-		auth: true
+		isAuth: false
 	}
 ]
